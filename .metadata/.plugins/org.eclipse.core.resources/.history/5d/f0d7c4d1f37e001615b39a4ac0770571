@@ -1,0 +1,19 @@
+package problem12;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
+import org.junit.Test;
+
+public class Problem12Test {
+
+	@Test
+	public void testPath1() {
+		Problem12 obj = new Problem12();
+		obj.factorization(5);
+		ArrayList<Integer> out = obj.output;
+		
+	}
+
+}

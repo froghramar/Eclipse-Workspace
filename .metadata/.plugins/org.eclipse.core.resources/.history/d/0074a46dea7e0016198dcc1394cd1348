@@ -1,0 +1,15 @@
+package problem11;
+
+import java.util.Arrays;
+
+public class Problem11 {
+	
+	boolean isPrime[];
+	
+	public void seive(int n){
+		isPrime = new boolean[n];
+		Arrays.fill(isPrime, true);
+		
+	}
+
+}

@@ -1,0 +1,11 @@
+package problem6;
+
+public class Problem6 {
+	
+	int n;
+	int a[] = new int[1000005];
+	
+	
+	
+	
+}

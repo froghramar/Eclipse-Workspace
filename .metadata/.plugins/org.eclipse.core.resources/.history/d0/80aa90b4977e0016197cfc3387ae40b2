@@ -1,0 +1,14 @@
+package problem7;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Problem7Test {
+
+	@Test
+	public void initOutputTesterPath1() {
+		
+	}
+
+}

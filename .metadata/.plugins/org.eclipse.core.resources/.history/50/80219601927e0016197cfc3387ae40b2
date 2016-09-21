@@ -1,0 +1,15 @@
+package problem4;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Problem4Test {
+
+	@Test
+	public void generatedMobiusSeriesTest() {
+		Problem4 obj = new Problem4();
+		
+	}
+
+}

@@ -1,0 +1,11 @@
+package problem4;
+
+public class Problem4 {
+	
+	int mu[];
+	
+	public void mobius(int n){
+		mu = new int[n + 1];
+		
+	}
+}

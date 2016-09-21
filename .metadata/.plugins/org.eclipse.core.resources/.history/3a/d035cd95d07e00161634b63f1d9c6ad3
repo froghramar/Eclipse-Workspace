@@ -1,0 +1,15 @@
+package problem8;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Problem8Test {
+
+	@Test
+	public void testPath1() {
+		Problem8 obj = new Problem8();
+		
+	}
+
+}

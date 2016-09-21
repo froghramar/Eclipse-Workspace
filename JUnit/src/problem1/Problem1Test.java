@@ -1,0 +1,30 @@
+package problem1;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Problem1Test {
+
+	@Test
+	public void bigmodOutputTesterPath1() {
+		Problem1 obj = new Problem1();
+		int result = obj.bigmod(1, 0);
+		assertEquals(1, result);
+	}
+	
+	@Test
+	public void bigmodOutputTesterPath2() {
+		Problem1 obj = new Problem1();
+		int result = obj.bigmod(2, 1);
+		assertEquals(2, result);
+	}
+	
+	@Test
+	public void bigmodOutputTesterPath3() {
+		Problem1 obj = new Problem1();
+		int result = obj.bigmod(2, 2);
+		assertEquals(4, result);
+	}
+
+}

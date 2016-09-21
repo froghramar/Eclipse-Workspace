@@ -1,0 +1,18 @@
+package problem8;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Problem8Test {
+
+	@Test
+	public void testPath1() {
+		Problem8 obj = new Problem8();
+		int N[] = {3,5,-1};
+		obj.n = N;
+		int result = obj.nextIndex(0);
+		assertEquals(2, result);
+	}
+
+}

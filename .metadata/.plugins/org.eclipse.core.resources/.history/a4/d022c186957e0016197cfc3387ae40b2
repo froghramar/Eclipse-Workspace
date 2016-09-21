@@ -1,0 +1,15 @@
+package problem6;
+
+import java.util.Scanner;
+
+public class Problem6 {
+	
+	int n;
+	int a[] = new int[1000005];
+	
+	public void init(){
+		
+	}
+	
+	
+}

@@ -1,0 +1,18 @@
+package problem7;
+
+public class Problem7 {
+	
+	int a, b, c;
+	String res;
+	
+	public void init(){
+		if(c == 0){
+			if(a == b) res = "Yes";
+			else res = "No";
+		}
+		else{
+			if((b - a) % c == 0) res = "Yes";
+			else res = "No";
+		}
+	}
+}

@@ -1,0 +1,24 @@
+package problem11;
+
+import java.util.Arrays;
+
+public class Problem11 {
+	
+	boolean isPrime[];
+	
+	public void seive(int n){
+		isPrime = new boolean[n];
+		Arrays.fill(isPrime, true);
+		isPrime[0] = isPrime[1] = false;
+		int i = 1;
+		int sq = (int) Math.sqrt(n);
+		while(i <= sq){
+			if(isPrime[i]){
+				for(int j = i * i; j < n; j += i)
+					isPrime[j] = false;
+			}
+			i++;
+		}
+	}
+
+}

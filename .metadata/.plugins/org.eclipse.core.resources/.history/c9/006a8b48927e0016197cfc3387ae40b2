@@ -1,0 +1,18 @@
+package problem4;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Problem4Test {
+
+	@Test
+	public void generatedMobiusSeriesTest() {
+		Problem4 obj = new Problem4();
+		obj.mobius(4);
+		int actual[] = obj.mu;
+		int expected[] = {0, 1, -1, -1, 0};
+		assertArrayEquals(expected, actual);
+	}
+
+}

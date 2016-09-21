@@ -1,0 +1,16 @@
+package problem1;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Problem1Test {
+
+	@Test
+	public void bigmodOutputTester() {
+		Problem1 obj = new Problem1();
+		int res1 = obj.bigmod(1, 0);
+		assertEquals(1, res1);
+	}
+
+}

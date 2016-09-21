@@ -1,0 +1,14 @@
+package problem11;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Problem11Test {
+
+	@Test
+	public void testPath1() {
+		
+	}
+
+}
