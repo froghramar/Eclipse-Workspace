@@ -1,0 +1,61 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class Init {
+    public static void main(String[] args) throws Exception {
+
+        int port = 1025;
+        ServerSocket serverSocket = null;
+        
+        try{
+        	serverSocket = new ServerSocket(port);
+        } catch(Exception e){
+        	e.printStackTrace();
+        	return;
+        }
+        
+
+        while (true) {
+
+            Socket clientSocket = serverSocket.accept();
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            PrintWriter out = new PrintWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+            
+            String s, url = null;
+            while ((s = in.readLine()) != null) {
+                if (s.isEmpty()) {
+                    break;
+                }
+                if(url == null) url = s;
+            }
+            
+            String tok[] = url.split(" ");
+            url = tok[1];
+            System.out.println(url);
+            
+            
+            try{
+            	Scanner fin = new Scanner(new File("Files" + url));
+            	out.print("File Found");
+            	fin.close();
+            } catch(Exception e){
+            	out.print("Error 404!");
+            }
+            
+
+            out.close();
+            in.close();
+            clientSocket.close();
+        }
+        
+    }
+    
+}

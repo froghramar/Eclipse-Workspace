@@ -1,0 +1,123 @@
+//package singleServer;
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+/*Created by jubair.mostafa on 1/4/2017.*/
+
+
+public class Init {
+    static ServerSocket server;
+    final static int port = 2000;
+    static Socket clientSocket;
+
+    public Init(){
+        server = null;
+        clientSocket = null;
+    }
+
+    public static void main(String[] args) {
+        try {
+            server = new ServerSocket(port);
+            System.out.println("Listening to port " + port);
+        } catch (IOException e) {
+            System.err.println("Could not listen on port: " + port);
+            System.exit(1);
+        }
+
+        while (true) {
+            try {
+                clientSocket = server.accept();
+
+                if (clientSocket != null) {
+                    System.out.println("Connected with client");
+                }
+
+                BufferedReader br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+
+                String firstLine;
+                firstLine = br.readLine();
+                System.out.println(firstLine);
+
+                String requestedFileName = getRequest(firstLine);
+
+                String filePath = getRequestedResource(requestedFileName);
+                String content = readFile(filePath);
+                provideResponse(content);
+
+                clientSocket.close();
+            } catch (IOException e) {
+                System.err.println("Accept failed.");
+                System.exit(1);
+
+
+            }
+        }
+    }
+
+    private static void provideResponse(String content) {
+        PrintWriter out = null;
+        try {
+            out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream())));
+
+            out.println("HTTP/1.1 200 OK");
+            out.println("Content-Type: text/html");
+            out.println("\r\n");
+            if(content == null) {
+                out.print("File not found");
+                out.close();
+            }
+            else out.print(content);
+
+            out.flush();
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static String readFile(String filePath) {
+        StringBuilder contentBuilder = new StringBuilder();
+        String content = "";
+        try {
+            BufferedReader in = new BufferedReader(new FileReader(filePath));
+
+            String str;
+            while ((str = in.readLine()) != null) {
+                contentBuilder.append(str);
+            }
+            in.close();
+
+            content = contentBuilder.toString();
+
+        } catch (IOException e) {
+            System.err.println("File not found");
+            return null;
+        }
+        return content;
+    }
+
+    private static String getRequestedResource(String requestedFileName) {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("C:\\Users\\jubair.mostafa\\IdeaProjects\\SimpleServerApp\\src\\");
+        stringBuilder.append(requestedFileName);
+        System.out.println(stringBuilder);
+
+        String path = stringBuilder.toString();
+
+        return path;
+    }
+
+    private static String getRequest(String request) {
+        String request_method, url_folders;
+        String[] tokens = request.split(" ");
+        request_method = tokens[0];
+        url_folders = tokens[1];
+
+        System.out.println("\n" + request_method + "\n" + url_folders + "\n\n");
+        url_folders = url_folders.substring(1, url_folders.length());
+
+        return url_folders;
+    }
+
+}

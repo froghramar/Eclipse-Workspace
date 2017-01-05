@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;url&apos; in &apos;Init.main(...)&apos; to &apos;request&apos;&#x0A;- Original project: &apos;HTTPServer&apos;&#x0A;- Original element: &apos;Init.main(String[]).url&apos;&#x0A;- Renamed element: &apos;url&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;url&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{Init.java[Init~main~\[QString;@url!892!912!902!904!QString;!0!false" name="request" references="true" stamp="1483615602000" version="1.0"/>
+</session>
